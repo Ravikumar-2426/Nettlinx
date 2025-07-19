@@ -1,0 +1,24 @@
+# Sample PDF Directory
+
+This directory contains PDF files for the investor relations section.
+
+When you have actual PDFs to upload, place them here with the following naming convention:
+
+- annual-report-2024.pdf
+- annual-return-2024.pdf
+- postal-ballot-2024.pdf
+- q4-fy24-results.pdf
+- governance-report-2024.pdf
+- shareholding-q4-fy24.pdf
+- code-of-conduct.pdf
+- tds-forms-2024.pdf
+- board-outcomes-2024.pdf
+- code-of-ethics-2024.pdf
+- credit-rating-2024.pdf
+- service-request-form.pdf
+- ir-contacts.pdf
+- share-price-2024.pdf
+- agm-newspaper-2024.pdf
+- investor-presentation-q4-fy24.pdf
+
+For now, the PDF viewer will show placeholder content until actual PDFs are uploaded.

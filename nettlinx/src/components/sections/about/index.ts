@@ -1,0 +1,11 @@
+export { default as HeroSection } from "./hero-section";
+export { default as CompanyOverview } from "./company-overview";
+export { default as BoardOfDirectors } from "./board-of-directors";
+export { default as CorporateCommittees } from "./corporate-committees";
+export { default as OurClients } from "./our-clients";
+// export { default as CSRPartnerships } from "./csr-partnerships";
+// export { default as Careers } from "./careers";
+// export { default as CompanyStatistics } from "./company-statistics";
+export { default as CompanyTimeline } from "./company-timeline";
+export { default as MissionVision } from "./mission-vision";
+export { default as CallToAction } from "./call-to-action";
