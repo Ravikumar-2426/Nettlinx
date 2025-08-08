@@ -73,7 +73,7 @@ A premium enterprise-grade full-stack web application for Nettlinx Limited, a Cl
 ## 📁 Project Structure
 
 ```
-├── client/                 # Frontend React application
+├── nettlinx/                 # Frontend React application
 │   ├── src/
 │   │   ├── components/     # Reusable UI components
 │   │   │   ├── navigation/ # Navbar and routing components
