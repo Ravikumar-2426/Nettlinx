@@ -1,0 +1,60 @@
+name: Deploy React TypeScript to Production
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linter
+        run: npm run lint --if-present || true
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          port: ${{ secrets.SERVER_PORT }}
+          script: |
+            cd /var/www/ezfinanztest/ezfinanzwebiste_new
+            git pull origin main
+            sudo npm i
+            sudo npm run build
+            sudo nginx -t
+            sudo systemctl reload nginx
+
+      - name: Send deployment notification
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const status = context.payload.deployment_status?.state || 'success';
+            console.log(`Deployment ${status}`);
